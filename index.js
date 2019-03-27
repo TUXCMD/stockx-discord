@@ -164,7 +164,7 @@ api.stockX.url = (url, cb) => {
  var eu = tempBody.children[size].market.highestBid;
                 var ava = eu*0.89
                 discordFields.push({
-                    name: "US " + tempBody.children[size].shoeSize;
+                    name: "US " + tempBody.children[size].shoeSize
                     value: `$${eu} - €${ava}`,
                     inline: true
                 });
