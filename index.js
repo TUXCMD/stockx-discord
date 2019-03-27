@@ -30,9 +30,7 @@ client.on("message", message => {
                 if (data.s) {
                     //success
                     api.Notification(data.data, message);
-                } else {
-                    //failure
-                    message.channel.send("Sorry, I couldn't get the requested resource!");
+                } else return;
                 }
             });
         } else {
