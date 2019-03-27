@@ -1,5 +1,6 @@
 const discord = require("discord.js");
 const client = new discord.Client();
+
 const request = require("request").defaults({
     timeout: 15000
 });
@@ -77,6 +78,8 @@ api.Notification = (data, message) => {
     });
 }
 
+var fx = require("money.js");
+
 api.stockX.url = (url, cb) => {
     request({
         url: url,
@@ -101,6 +104,11 @@ api.stockX.url = (url, cb) => {
             productObj.market.highestBid = "$" + tempBody.market.highestBid;
             productObj.market.totalSold = tempBody.market.deadstockSold;
             productObj.market.averagePrice = "$" + tempBody.market.averageDeadstockPrice;
+            
+            
+          
+          eurL =  fx.convert(${tempBody.market.lowestAsk}, {from: "USD", to: "EUR"});
+          eurB =  fx.convert(${tempBody.market.highestBid}, {from: "USD", to: "EUR"});
 
             let discordFields = [{
                 name: "Retail Price",
@@ -124,12 +132,12 @@ api.stockX.url = (url, cb) => {
             },
             {
                 name: "Lowest Ask",
-                value: `${productObj.market.lowestAsk}`,
+                value: `${productObj.market.lowestAsk} - ${eurL}`,
                 inline: true
             },
             {
                 name: "Highest Bid",
-                value: `${productObj.market.highestBid}`,
+                value: `${productObj.market.highestBid} - ${eurB}`,
                 inline: true
             },
             {
@@ -142,6 +150,8 @@ api.stockX.url = (url, cb) => {
                 value: `${productObj.market.averagePrice}`,
                 inline: true
             }];
+
+       
 
             for (let size in tempBody.children) {
                 productObj.market.sizes.push({
