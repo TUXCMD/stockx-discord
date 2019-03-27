@@ -1,6 +1,5 @@
 const discord = require("discord.js");
 const client = new discord.Client();
-const convertCurrency = require('nodejs-currency-converter');
 const request = require("request").defaults({
     timeout: 15000
 });
