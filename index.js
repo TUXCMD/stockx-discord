@@ -139,7 +139,7 @@ api.stockX.url = (url, cb) => {
             },
             {
                 name: "Highest Bid",
-                value: `${productObj.market.highestBid} - € ${high}`,
+                value: `${productObj.market.highestBid} - € Math.round(${high})`,
                 inline: true
             },
             {
