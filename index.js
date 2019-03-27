@@ -78,7 +78,6 @@ api.Notification = (data, message) => {
     });
 }
 
-var fx = require("money.js");
 
 api.stockX.url = (url, cb) => {
     request({
@@ -105,10 +104,10 @@ api.stockX.url = (url, cb) => {
             productObj.market.totalSold = tempBody.market.deadstockSold;
             productObj.market.averagePrice = "$" + tempBody.market.averageDeadstockPrice;
             
-            
-          
-          eurL =  fx.convert(${tempBody.market.lowestAsk}, {from: "USD", to: "EUR"});
-          eurB =  fx.convert(${tempBody.market.highestBid}, {from: "USD", to: "EUR"});
+const convertCurrency = require('nodejs-currency-converter');
+
+          eurL =  convertCurrency(tempBody.market.lowestAsk, 'USD', 'EUR').then(response => response);
+          eurB =  convertCurrency(tempBody.market.highestBid, 'USD', 'EUR').then(response => response);
 
             let discordFields = [{
                 name: "Retail Price",
