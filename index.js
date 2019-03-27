@@ -107,9 +107,11 @@ api.stockX.url = (url, cb) => {
         //usd to eur
             var x = tempBody.market.lowestAsk;
             var y = tempBody.market.highestBid;
+            var z = productObj.market.averagePrice;
            var cc = 0.89;
             var lowest = x*cc;
             var high = y*cc;
+            var avarage = z*cc;
      
 
             let discordFields = [{
@@ -134,12 +136,12 @@ api.stockX.url = (url, cb) => {
             },
             {
                 name: "Lowest Ask",
-                value: `${productObj.market.lowestAsk} - € ${lowest}`,
+                value: `${productObj.market.lowestAsk} - €${lowest}`,
                 inline: true
             },
             {
                 name: "Highest Bid",
-                value: `${productObj.market.highestBid} - € Math.round(${high})`,
+                value: `${productObj.market.highestBid} - €${high}`,
                 inline: true
             },
             {
@@ -149,7 +151,7 @@ api.stockX.url = (url, cb) => {
             },
             {
                 name: "Average Price",
-                value: `${productObj.market.averagePrice}`,
+                value: `${productObj.market.averagePrice} - €${avarage}`,
                 inline: true
             }];
 
