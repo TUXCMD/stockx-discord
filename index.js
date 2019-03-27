@@ -107,7 +107,7 @@ api.stockX.url = (url, cb) => {
         //usd to eur
             var x = tempBody.market.lowestAsk;
             var y = tempBody.market.highestBid;
-            var z = productObj.market.averagePrice;
+            var z = tempBody.market.averageDeadstockPrice;
            var cc = 0.89;
             var lowest = x*cc;
             var high = y*cc;
