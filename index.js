@@ -163,7 +163,7 @@ api.stockX.url = (url, cb) => {
 
                 discordFields.push({
                     name: "US " + tempBody.children[size].shoeSize,
-                    value: "$" + tempBody.children[size].market.highestBid "- €" + tempBody.children[size].market.highestBid*0.89,
+                    value: "$" + tempBody.children[size].market.highestBid '€ + tempBody.children[size].market.highestBid*0.89',
                     inline: true
                 });
             }
