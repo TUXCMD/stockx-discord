@@ -6,14 +6,14 @@ const request = require("request").defaults({
 
 var config = {
     prefix: "!",
-    token: ""
+    token: "NTU3OTk3MjgyNjA4NTQ1Nzky.D3QbEQ.lNvaxena1uCLFNbmRXvoZKUwLPY"
 }
 var api = {};
 api.stockX = {};
 
 client.on("ready", () => {
     console.log("Bot ready!");
-    client.user.setActivity("Getting the latest market data!", "PLAYING");
+    client.user.setActivity("Getting the latest OW restock!", "PLAYING");
 });
 
 client.on("message", message => {
@@ -71,7 +71,7 @@ api.Notification = (data, message) => {
             timestamp: new Date(),
             footer: {
                 icon_url: client.user.avatarURL,
-                text: "@calm301"
+                text: "A-Team Bot V3.0 Made By Younes"
             }
         }
     });
