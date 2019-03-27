@@ -106,7 +106,7 @@ api.stockX.url = (url, cb) => {
             
 var https = require('https');
 
-eurL = function convertCurrency('${tempBody.market.lowestAsk}', 'USD', 'EUR'); {
+eurL = function convertCurrency('tempBody.market.lowestAsk', 'USD', 'EUR'); {
   var apiKey = 'bbb7d17af39d5eb35fc2';
 
   fromCurrency = encodeURIComponent(fromCurrency);
@@ -154,7 +154,7 @@ convertCurrency(10, 'USD', 'PHP', function(err, amount) {
 });
 */            
             
-         eurB = function convertCurrency('{tempBody.market.lowestAsk}', 'USD', 'EUR'); {
+         eurB = function convertCurrency('tempBody.market.lowestAsk', 'USD', 'EUR'); {
   var apiKey = 'bbb7d17af39d5eb35fc2';
 
   fromCurrency = encodeURIComponent(fromCurrency);
