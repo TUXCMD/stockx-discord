@@ -104,10 +104,105 @@ api.stockX.url = (url, cb) => {
             productObj.market.totalSold = tempBody.market.deadstockSold;
             productObj.market.averagePrice = "$" + tempBody.market.averageDeadstockPrice;
             
-const convertCurrency = require('nodejs-currency-converter');
+var https = require('https');
 
-          eurL =  convertCurrency(tempBody.market.lowestAsk, 'USD', 'EUR').then(response => response);
-          eurB =  convertCurrency(tempBody.market.highestBid, 'USD', 'EUR').then(response => response);
+eurL = function convertCurrency('${tempBody.market.lowestAsk}', 'USD', 'EUR'); {
+  var apiKey = 'bbb7d17af39d5eb35fc2';
+
+  fromCurrency = encodeURIComponent(fromCurrency);
+  toCurrency = encodeURIComponent(toCurrency);
+  var query = fromCurrency + '_' + toCurrency;
+
+  var url = 'https://api.currencyconverterapi.com/api/v6/convert?q='
+            + query + '&compact=ultra&apiKey=' + apiKey;
+
+  https.get(url, function(res){
+      var body = '';
+
+      res.on('data', function(chunk){
+          body += chunk;
+      });
+
+      res.on('end', function(){
+          try {
+            var jsonObj = JSON.parse(body);
+
+            var val = jsonObj[query];
+            if (val) {
+              var total = val * amount;
+              cb(null, Math.round(total * 100) / 100);
+            } else {
+              var err = new Error("Value not found for " + query);
+              console.log(err);
+              cb(err);
+            }
+          } catch(e) {
+            console.log("Parse error: ", e);
+            cb(e);
+          }
+      });
+  }).on('error', function(e){
+        console.log("Got an error: ", e);
+        cb(e);
+  });
+}
+
+//uncomment to test
+/*
+convertCurrency(10, 'USD', 'PHP', function(err, amount) {
+  console.log(amount);
+});
+*/            
+            
+         eurB = function convertCurrency('{tempBody.market.lowestAsk}', 'USD', 'EUR'); {
+  var apiKey = 'bbb7d17af39d5eb35fc2';
+
+  fromCurrency = encodeURIComponent(fromCurrency);
+  toCurrency = encodeURIComponent(toCurrency);
+  var query = fromCurrency + '_' + toCurrency;
+
+  var url = 'https://api.currencyconverterapi.com/api/v6/convert?q='
+            + query + '&compact=ultra&apiKey=' + apiKey;
+
+  https.get(url, function(res){
+      var body = '';
+
+      res.on('data', function(chunk){
+          body += chunk;
+      });
+
+      res.on('end', function(){
+          try {
+            var jsonObj = JSON.parse(body);
+
+            var val = jsonObj[query];
+            if (val) {
+              var total = val * amount;
+              cb(null, Math.round(total * 100) / 100);
+            } else {
+              var err = new Error("Value not found for " + query);
+              console.log(err);
+              cb(err);
+            }
+          } catch(e) {
+            console.log("Parse error: ", e);
+            cb(e);
+          }
+      });
+  }).on('error', function(e){
+        console.log("Got an error: ", e);
+        cb(e);
+  });
+}
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
             let discordFields = [{
                 name: "Retail Price",
