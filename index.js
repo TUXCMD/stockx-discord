@@ -160,10 +160,10 @@ api.stockX.url = (url, cb) => {
                     size: tempBody.children[size].shoeSize,
                     highestBid: "$" + tempBody.children[size].market.highestBid
                 });
-
+ var eu = tempBody.children[size].market.highestBid;
                 discordFields.push({
                     name: "US " + tempBody.children[size].shoeSize,
-                    value: "$" + tempBody.children[size].market.highestBid '€ + tempBody.children[size].market.highestBid*0.89',
+                    value: `$ ${eu} - € ${eu}*0.89`,
                     inline: true
                 });
             }
