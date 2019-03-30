@@ -42,9 +42,8 @@ client.on("message", message => {
                 } else {
                     //failure
                     message.channel.send("Sorry, I couldn't get the requested resource!");
-                }
-            });
-        
+                } }); } } else 
+          { return; } });
     
 
 
