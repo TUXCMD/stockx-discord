@@ -45,10 +45,7 @@ client.on("message", message => {
                 }
             });
         }
-    } else {
-        message.channel.send("Invalid command, make sure you are using '!stockx' as the prefix.");
-    }
-
+    
 });
 
 client.login(config.token);
