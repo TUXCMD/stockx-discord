@@ -30,9 +30,10 @@ client.on("message", message => {
                 if (data.s) {
                     //success
                     api.Notification(data.data, message);
-                } else return;
-                }
-            });
+                } else { //failure
+                    message.channel.send("Sorry, I couldn't get the requested resource!"); } });
+                
+
         } else {
             api.stockX.keywords(args, (data) => {
                 if (data.s) {
