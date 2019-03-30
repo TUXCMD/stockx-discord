@@ -44,9 +44,9 @@ client.on("message", message => {
                     message.channel.send("Sorry, I couldn't get the requested resource!");
                 }
             });
-        }
+        
     
-});
+
 
 client.login(config.token);
 
