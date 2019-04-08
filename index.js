@@ -238,13 +238,13 @@ client.on('message', (receivedMessage) => {
 
     
 
-    if (receivedMessage.content.startsWith("!ateam")) {
+    if (receivedMessage.content.startsWith("!restock")) {
 
        
 
 console.log('Ateam');
 
-    receivedMessage.channel.send(`Let's Cop! <:ATeam:516035121686773762>`)}
+    receivedMessage.channel.send(`@everyone RESTOCK HERE`)}
 
   
 
