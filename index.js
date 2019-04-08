@@ -228,3 +228,25 @@ api.stockX.keywords = (keywords, callback) => {
         }
     });
 }
+client.on('message', (receivedMessage) => {
+
+    if (receivedMessage.author == client.user) { // Prevent bot from responding to its own messages
+
+        return
+
+    }
+
+    
+
+    if (receivedMessage.content.startsWith("!ateam")) {
+
+       
+
+console.log('Ateam');
+
+    receivedMessage.channel.send(`Let's Cop! <:ATeam:516035121686773762>`)}
+
+  
+
+})
+
