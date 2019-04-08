@@ -250,3 +250,17 @@ console.log('Ateam');
 
 })
 
+client.on('message', (receivedMessage) => {
+
+    if (receivedMessage.author == client.user) { // Prevent bot from responding to its own messages
+
+        return;
+
+    }
+
+    if (receivedMessage.content.startsWith("!restockplease")) {
+
+       
+
+    receivedMessage.channel.send(`Restock Off-White in corso... `)}
+
