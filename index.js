@@ -259,13 +259,13 @@ client.on('message', (receivedMessage) => {
 
     
 
-    if (receivedMessage.content.startsWith("!restockpls")) {
+    if (receivedMessage.content.startsWith("!pleaserestock")) {
 
        
 
 console.log('Ateam');
 
-    receivedMessage.channel.send(`Off white restock in corso... `)}
+    receivedMessage.channel.send(`Preparazione restock Off-White in corso... `)}
 
   
 
